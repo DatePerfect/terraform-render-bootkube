@@ -56,10 +56,20 @@ resource "local_file" "kubeconfig" {
   filename = "${var.asset_dir}/auth/kubeconfig"
 }
 
-# Generated kubeconfig with user-context
+# Generated kubeconfig with user-context with assets
 resource "local_file" "user-kubeconfig" {
+  count = "${var.kubeconfig_dir == ''}"
+
   content  = "${data.template_file.user-kubeconfig.rendered}"
   filename = "${var.asset_dir}/auth/${var.cluster_name}-config"
+}
+
+# Generated kubeconfig with user-context to a custom location
+resource "local_file" "user-kubeconfig" {
+  count = "${var.kubeconfig_dir != ''}"
+
+  content  = "${data.template_file.user-kubeconfig.rendered}"
+  filename = "${var.kubeconfig_dir}/${var.cluster_name}-config"
 }
 
 data "template_file" "kubeconfig" {

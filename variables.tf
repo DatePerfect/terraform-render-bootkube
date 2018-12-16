@@ -18,6 +18,12 @@ variable "asset_dir" {
   type        = "string"
 }
 
+variable "kubeconfig_dir" {
+  description = "Path to a directory where a generated admin kubeconfig should be placed"
+  type        = "string"
+  default     = ""
+}
+
 variable "cloud_provider" {
   description = "The provider for cloud services (empty string for no provider)"
   type        = "string"
