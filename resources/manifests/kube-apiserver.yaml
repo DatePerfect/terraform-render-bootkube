@@ -49,7 +49,7 @@ spec:
         - --tls-cert-file=/etc/kubernetes/secrets/apiserver.crt
         - --tls-private-key-file=/etc/kubernetes/secrets/apiserver.key
         - --enable-aggregator-routing=true 
-        - --requestheader-client-ca-file=/etc/kubernetes/secrets/ca.pem 
+        - --requestheader-client-ca-file=/etc/kubernetes/secrets/ca.crt 
         - --requestheader-allowed-names="aggregator" 
         - --requestheader-extra-headers-prefix="X-Remote-Extra-" 
         - --requestheader-group-headers=X-Remote-Group 
