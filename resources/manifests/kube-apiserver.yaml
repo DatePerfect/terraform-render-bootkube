@@ -48,6 +48,12 @@ spec:
         - --storage-backend=etcd3
         - --tls-cert-file=/etc/kubernetes/secrets/apiserver.crt
         - --tls-private-key-file=/etc/kubernetes/secrets/apiserver.key
+        - --enable-aggregator-routing=true 
+        - --requestheader-client-ca-file=/etc/kubernetes/secrets/ca.pem 
+        - --requestheader-allowed-names="aggregator" 
+        - --requestheader-extra-headers-prefix="X-Remote-Extra-" 
+        - --requestheader-group-headers=X-Remote-Group 
+        - --requestheader-username-headers=X-Remote-User
         env:
         - name: POD_IP
           valueFrom:
