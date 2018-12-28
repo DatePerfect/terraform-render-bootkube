@@ -54,6 +54,8 @@ spec:
         - --requestheader-extra-headers-prefix="X-Remote-Extra-" 
         - --requestheader-group-headers=X-Remote-Group 
         - --requestheader-username-headers=X-Remote-User
+        - --proxy-client-cert-file=/etc/kubernetes/secrets/apiserver.crt
+        - --proxy-client-key-file=/etc/kubernetes/secrets/apiserver.key
         env:
         - name: POD_IP
           valueFrom:
